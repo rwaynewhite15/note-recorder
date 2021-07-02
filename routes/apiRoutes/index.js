@@ -7,6 +7,7 @@ function getNotes(){
     return JSON.parse(notes);
 }
 function saveNotes(notes){
+    console.log(`NOTE SAVED`);
     fs.writeFileSync("db/db.json", JSON.stringify(notes), "utf8");
 }
 
@@ -23,6 +24,19 @@ router.post("/notes",(req,res) => {
     res.json(note)
 })
 
+router.delete("/notes",(req,res) =>{
+    const deleteId = req.params.id;
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+        if (err) throw err;
+        let notesArr = JSON.parse(data);
+        for (let i = 0; i < notesArr.length; i++) {
+            if (notesArr[i].id === deleteId) {
+              notesArr.splice(i, 1);
+            }
+        }
+    return res;
+    });
+});
 
 module.exports = router;
 
