@@ -1,6 +1,6 @@
 # Express.js Note Recording App
 
-  ## A note taking aplication created using express.js to store and serve data.
+  ## A note taking application created using express.js to store and serve data.
 
   <br>
   
