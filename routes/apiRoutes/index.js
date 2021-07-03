@@ -24,8 +24,5 @@ router.post("/notes",(req,res) => {
     res.json(note)
 })
 
-router.delete(
-});
-
 module.exports = router;
 
